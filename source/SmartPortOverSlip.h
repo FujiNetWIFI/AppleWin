@@ -32,20 +32,20 @@ public:
 	static void device_count(WORD sp_payload_loc);
 	void handle_smartport_call();
 	void handle_prodos_call();
-	void control(BYTE unit_number, Connection *connection, WORD sp_payload_loc, const BYTE params_count, const WORD params_loc);
-	void init(BYTE unit_number, Connection *connection);
-	void open(BYTE unit_number, Connection *connection);
-	void close(BYTE unit_number, Connection *connection);
-	void format(BYTE unit_number, Connection *connection);
-	void reset(BYTE unit_number, Connection *connection);
-	void read_block(BYTE unit_number, Connection *connection, WORD sp_payload_loc, WORD params_loc);
-	void write_block(BYTE unit_number, Connection *connection, WORD sp_payload_loc, WORD params_loc);
-	void read(BYTE unit_number, Connection *connection, WORD sp_payload_loc, WORD params_loc);
-	void write(BYTE unit_number, Connection *connection, WORD sp_payload_loc, WORD params_loc);
+	void control(BYTE unit_number, Connection *connection, WORD sp_payload_loc, BYTE params_count, WORD params_loc);
+	void init(BYTE unit_number, Connection *connection, BYTE params_count);
+	void open(BYTE unit_number, Connection *connection, BYTE params_count);
+	void close(BYTE unit_number, Connection *connection, BYTE params_count);
+	void format(BYTE unit_number, Connection *connection, BYTE params_count);
+	void reset(BYTE unit_number, Connection *connection, BYTE params_count);
+	void read_block(BYTE unit_number, Connection *connection, WORD sp_payload_loc, BYTE params_count, WORD params_loc);
+	void write_block(BYTE unit_number, Connection *connection, WORD sp_payload_loc, BYTE params_count, WORD params_loc);
+	void read(BYTE unit_number, Connection *connection, WORD sp_payload_loc, BYTE params_count, WORD params_loc);
+	void write(BYTE unit_number, Connection *connection, WORD sp_payload_loc, BYTE params_count, WORD params_loc);
 
-	std::unique_ptr<Response> status(BYTE unit_number, Connection *connection, const BYTE status_code, const BYTE network_unit);
-	std::unique_ptr<StatusResponse> status_pd(const BYTE unit_number, Connection *connection, const BYTE status_code);
-	void status_sp(const BYTE unit_number, Connection *connection, const WORD sp_payload_loc, const BYTE params_count, const WORD params_loc);
+	std::unique_ptr<Response> status(BYTE unit_number, Connection *connection, BYTE params_count, BYTE status_code, BYTE network_unit);
+	std::unique_ptr<StatusResponse> status_pd(BYTE unit_number, Connection *connection, BYTE status_code);
+	void status_sp(BYTE unit_number, Connection *connection, WORD sp_payload_loc, BYTE params_count, WORD params_loc);
 
 	void handle_prodos_status(uint8_t drive_num, std::pair<int, int> disk_devices);
 	void handle_prodos_read(uint8_t drive_num, std::pair<int, int> disk_devices);

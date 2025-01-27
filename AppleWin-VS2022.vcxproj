@@ -34,7 +34,6 @@
     <ClInclude Include="source\devrelay\commands\Open.h" />
     <ClInclude Include="source\devrelay\commands\Read.h" />
     <ClInclude Include="source\devrelay\commands\ReadBlock.h" />
-    <ClInclude Include="source\devrelay\commands\Reset.h" />
     <ClInclude Include="source\devrelay\commands\Status.h" />
     <ClInclude Include="source\devrelay\commands\Write.h" />
     <ClInclude Include="source\devrelay\commands\WriteBlock.h" />
@@ -193,9 +192,6 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="source\devrelay\commands\ReadBlock.cpp">
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
-    </ClCompile>
-    <ClCompile Include="source\devrelay\commands\Reset.cpp">
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="source\devrelay\commands\Status.cpp">

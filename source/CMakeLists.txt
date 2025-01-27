@@ -137,7 +137,6 @@ set(SOURCE_FILES
   devrelay/commands/Open.cpp
   devrelay/commands/ReadBlock.cpp
   devrelay/commands/Read.cpp
-  devrelay/commands/Reset.cpp
   devrelay/commands/Status.cpp
   devrelay/commands/WriteBlock.cpp
   devrelay/commands/Write.cpp
@@ -255,7 +254,6 @@ set(HEADER_FILES
   devrelay/commands/Open.h
   devrelay/commands/ReadBlock.h
   devrelay/commands/Read.h
-  devrelay/commands/Reset.h
   devrelay/commands/Status.h
   devrelay/commands/WriteBlock.h
   devrelay/commands/Write.h

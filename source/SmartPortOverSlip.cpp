@@ -25,6 +25,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 #include <memory>
 #include <sstream>
 #include <iomanip>
+#include <cstring>
 
 #include "YamlHelper.h"
 #include "SmartPortOverSlip.h"
@@ -69,6 +70,18 @@ SmartPortOverSlip::SmartPortOverSlip(const UINT slot) : Card(CT_SmartPortOverSli
 	active_instances++;
 
 	LogFileOutput("SmartPortOverSlip ctor, slot: %d\n", slot);
+
+	// Bring the SLIP listener up with the card. LoadConfiguration() is the
+	// only place that starts it, and the libretro frontend never calls it --
+	// it builds its own registry and machine -- so on that frontend nothing
+	// ever listens on 1985 and a FujiNet client retries forever. Inserting
+	// the card is the right moment for its listener regardless of frontend.
+	auto &listener = GetCommandListener();
+	listener.Initialize(listener.default_listener_address,
+	                    listener.default_port,
+	                    listener.default_response_timeout);
+	listener.set_start_on_init(true);
+	listener.start();
 }
 
 SmartPortOverSlip::~SmartPortOverSlip()

@@ -3,6 +3,7 @@
 #include <memory>
 #include <sstream>
 #include <iomanip>
+#include <cstring>
 
 #include "YamlHelper.h"
 #include "DummySmartport.h"

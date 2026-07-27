@@ -65,7 +65,7 @@ public:
 
 	// default values for listener
 	bool default_start_listener = true;
-	std::string default_listener_address = "0.0.0.0";
+	std::string default_listener_address = "127.0.0.1";
 	uint16_t default_port = 1985;
 	uint16_t default_response_timeout = 10; // seconds
 

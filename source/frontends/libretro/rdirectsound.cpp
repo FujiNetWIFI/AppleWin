@@ -165,7 +165,8 @@ namespace ra2
                 int16_t *ptr = buffer.data();
 
                 mixBuffer(generator, lpvAudioPtr1, dwAudioBytes1, ptr);
-                mixBuffer(generator, lpvAudioPtr2, dwAudioBytes2, ptr);
+                mixBuffer(generator, lpvAudioPtr2, dwAudioBytes2,
+                          ptr + dwAudioBytes1 / sizeof(int16_t));
             }
         }
         ra2::audio_batch_cb(buffer.data(), framesToRead);
